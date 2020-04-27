@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+    <form method="POST" action="/search">
+        <p>Pokemon Name: <input type="text" name="name" /></p>
+        <input type="submit" value="Search" />
+    </form>
+
+    <hr/>  
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Attack</th>
+        </thead>
+        <tbody>
+            {% for row in results %}
+            <tr>
+                <td>{{ row.id }}  </td>
+                <td>{{ row.name }}  </td>
+                <td>{{ row.type }}  </td>
+                <td>{{ row.attack }}</td>
+            </tr>
+            {% endfor %}           
+        </tbody>
+    </table>
+</body>
+</html>

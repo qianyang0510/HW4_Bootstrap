@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h3>{{ legend }}</h3>
+
+{% if pokemons %}
+<table class="table table-hover">
+    <thead>
+        <tr class="table-light">
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pokemon in pokemons %}
+        <tr>
+            <td> {{ pokemon.id }}</td>
+            <td> {{ pokemon.name }}</td>
+            <td>
+                <form action="/detail/{{ pokemon.id }}" method="GET">
+                   <button type="submit" class="btn btn-outline-dark">Detail</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}
